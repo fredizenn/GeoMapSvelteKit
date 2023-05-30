@@ -9,7 +9,7 @@
         // ECharts configuration options for the Geo Map
         const options = {
     title: {
-      text: 'Ghana Map Test',
+      text: 'Ghana Map Test - Echarts::Svelte',
       subtext: 'Dummy ',
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
