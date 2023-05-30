@@ -66,7 +66,7 @@
         data: [
           { name: 'Ahafo', value: 4822023 },
           { name: 'Ashanti', value: 3590347 },
-          { name: 'Brong Ahafo', value: 731449 },
+          { name: 'Bono', value: 731449 },
           { name: 'Bono East', value: 6553255 },
           { name: 'Central', value: 2949131 },
           { name: 'Eastern', value: 38041430 },
@@ -74,7 +74,7 @@
           { name: 'Northern', value: 5187582 },
           { name: 'North East', value: 917092 },
           { name: 'Oti', value: 632323 },
-          { name: 'Savannah Region', value: 19317568 },
+          { name: 'Savannah', value: 19317568 },
           { name: 'Upper East', value: 1392313 },
           { name: 'Upper West', value: 1595728 },
           { name: 'Volta', value: 12875255 },
