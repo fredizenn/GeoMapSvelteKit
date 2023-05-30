@@ -9,7 +9,7 @@
         // ECharts configuration options for the Geo Map
         const options = {
     title: {
-      text: 'USA Population Estimates (2012)',
+      text: 'Ghana Map Test',
       subtext: 'Data from www.census.gov',
       sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
@@ -54,7 +54,7 @@
     },
     series: [
       {
-        name: 'USA PopEstimates',
+        name: 'Ghana',
         type: 'map',
         roam: true,
         map: 'world',
@@ -64,58 +64,22 @@
           }
         },
         data: [
-          { name: 'Alabama', value: 4822023 },
-          { name: 'Alaska', value: 731449 },
-          { name: 'Arizona', value: 6553255 },
-          { name: 'Arkansas', value: 2949131 },
-          { name: 'California', value: 38041430 },
-          { name: 'Colorado', value: 5187582 },
-          { name: 'Connecticut', value: 3590347 },
-          { name: 'Delaware', value: 917092 },
-          { name: 'District of Columbia', value: 632323 },
-          { name: 'Florida', value: 19317568 },
-          { name: 'Georgia', value: 9919945 },
-          { name: 'Hawaii', value: 1392313 },
-          { name: 'Idaho', value: 1595728 },
-          { name: 'Illinois', value: 12875255 },
-          { name: 'Indiana', value: 6537334 },
-          { name: 'Iowa', value: 3074186 },
-          { name: 'Kansas', value: 2885905 },
-          { name: 'Kentucky', value: 4380415 },
-          { name: 'Louisiana', value: 4601893 },
-          { name: 'Maine', value: 1329192 },
-          { name: 'Maryland', value: 5884563 },
-          { name: 'Massachusetts', value: 6646144 },
-          { name: 'Michigan', value: 9883360 },
-          { name: 'Minnesota', value: 5379139 },
-          { name: 'Mississippi', value: 2984926 },
-          { name: 'Missouri', value: 6021988 },
-          { name: 'Montana', value: 1005141 },
-          { name: 'Nebraska', value: 1855525 },
-          { name: 'Nevada', value: 2758931 },
-          { name: 'New Hampshire', value: 1320718 },
-          { name: 'New Jersey', value: 8864590 },
-          { name: 'New Mexico', value: 2085538 },
-          { name: 'New York', value: 19570261 },
-          { name: 'North Carolina', value: 9752073 },
-          { name: 'North Dakota', value: 699628 },
-          { name: 'Ohio', value: 11544225 },
-          { name: 'Oklahoma', value: 3814820 },
-          { name: 'Oregon', value: 3899353 },
-          { name: 'Pennsylvania', value: 12763536 },
-          { name: 'Rhode Island', value: 1050292 },
-          { name: 'South Carolina', value: 4723723 },
-          { name: 'South Dakota', value: 833354 },
-          { name: 'Tennessee', value: 6456243 },
-          { name: 'Texas', value: 26059203 },
-          { name: 'Utah', value: 2855287 },
-          { name: 'Vermont', value: 626011 },
-          { name: 'Virginia', value: 8185867 },
-          { name: 'Washington', value: 6897012 },
-          { name: 'West Virginia', value: 1855413 },
-          { name: 'Wisconsin', value: 5726398 },
-          { name: 'Wyoming', value: 576412 },
-          { name: 'Puerto Rico', value: 3667084 }
+          { name: 'Ahafo', value: 4822023 },
+          { name: 'Ashanti', value: 3590347 },
+          { name: 'Brong Ahafo', value: 731449 },
+          { name: 'Bono East', value: 6553255 },
+          { name: 'Central', value: 2949131 },
+          { name: 'Eastern', value: 38041430 },
+          { name: 'Greater Accra', value: 9919945 },
+          { name: 'Northern', value: 5187582 },
+          { name: 'North East', value: 917092 },
+          { name: 'Oti', value: 632323 },
+          { name: 'Savannah Region', value: 19317568 },
+          { name: 'Upper East', value: 1392313 },
+          { name: 'Upper West', value: 1595728 },
+          { name: 'Volta', value: 12875255 },
+          { name: 'Western', value: 6537334 },
+          { name: 'Western North', value: 3074186 },
         ]
       }
     ]
@@ -128,4 +92,4 @@
     });
   </script>
   
-  <div id="echarts-container" style="width: 100%; height: 600px;"></div>
+  <div id="echarts-container" style="width: 100%; height: 650px;"></div>
