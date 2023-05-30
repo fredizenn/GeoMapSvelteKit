@@ -10,8 +10,8 @@
         const options = {
     title: {
       text: 'Ghana Map Test',
-      subtext: 'Data from www.census.gov',
-      sublink: 'http://www.census.gov/popest/data/datasets.html',
+      subtext: 'Dummy ',
+      // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
     },
     tooltip: {
