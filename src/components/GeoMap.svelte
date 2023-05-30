@@ -122,7 +122,7 @@
   };
 
       
-    // echarts.registerMap('world', worldGeoJson); // Register the GeoJSON data for the map
+    echarts.registerMap('world', worldGeoJson); // Register the GeoJSON data for the map
     chart.setOption(options);
       });
     });
