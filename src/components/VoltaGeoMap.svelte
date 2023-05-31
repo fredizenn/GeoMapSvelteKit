@@ -92,7 +92,7 @@
     });
   </script>
   
-  <div class="p-2">
+  <!-- <div class="p-2">
     <a href="/">Main Map</a>
-  </div>
+  </div> -->
   <div id="echarts-container" style="width: 100%; height: 650px;"></div>

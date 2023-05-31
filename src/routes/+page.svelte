@@ -3,7 +3,7 @@
   </script>
   
 
-  <div class="p-2">
+  <!-- <div class="p-2">
     <a href="/volta">Volta</a>
   </div>
-  <GeoMap />
+  <GeoMap /> -->

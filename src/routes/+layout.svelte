@@ -1,9 +1,28 @@
-<script>
+<script lang="ts">
 import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 import '@skeletonlabs/skeleton/styles/skeleton.css';
 import '../app.postcss';	
+import { TabGroup, Tab } from '@skeletonlabs/skeleton';
+  import GeoMap from '../components/GeoMap.svelte';
+  import VoltaGeoMap from '../components/VoltaGeoMap.svelte';
+
+let tabSet: number = 0;
+
 </script>
 
 
+<TabGroup>
+	<Tab bind:group={tabSet} name="tab1" value={0}>Ghana Map</Tab>
+	<Tab bind:group={tabSet} name="tab2" value={1}>Volta</Tab>
+	<!-- Tab Panels --->
+	<svelte:fragment slot="panel">
+		{#if tabSet === 0}
+			<GeoMap />
+		{:else if tabSet === 1}
+			<VoltaGeoMap />
+		{/if}
+	</svelte:fragment>
+</TabGroup>
+			
 
 <slot />
