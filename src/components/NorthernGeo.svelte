@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import voltaGeoJson from './volta.geo.json'; // Import the GeoJSON file for the world map
+    import northernGeoJson from './northern.geo.json'
+    
 
     onMount(() => {
       import('echarts').then(echarts => {
@@ -10,7 +11,7 @@
         const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Volta ',
+      subtext: 'Northern Region with constituents',
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
     },
@@ -57,7 +58,7 @@
         name: 'Ghana',
         type: 'map',
         roam: true,
-        map: 'volta',
+        map: 'north',
         emphasis: {
           label: {
             show: true
@@ -86,7 +87,7 @@
   };
 
       
-    echarts.registerMap('volta', voltaGeoJson); // Register the GeoJSON data for the map
+    echarts.registerMap('north', northernGeoJson); // Register the GeoJSON data for the map
     chart.setOption(options);
       });
     });
