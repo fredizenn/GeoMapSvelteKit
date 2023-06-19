@@ -4,7 +4,9 @@
     {
       "id": "caaad25bdf36a168f42a64a30edaa501",
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "B"
+      },
       "geometry": {
         "coordinates": [
           [
@@ -1020,7 +1022,7 @@
     {
       "id": "fbf1b952a41e0a897ac8b63ebc6ef046",
       "type": "Feature",
-      "properties": {},
+      "properties": { "name": "A"},
       "geometry": {
         "coordinates": [
           [

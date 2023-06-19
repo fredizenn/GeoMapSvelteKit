@@ -10,7 +10,7 @@
         const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Dummy ',
+      subtext: 'Gh',
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
     },
@@ -57,39 +57,44 @@
         name: 'Ghana',
         type: 'map',
         roam: true,
-        map: 'world',
+        map: 'Ghana',
         emphasis: {
           label: {
             show: true
           }
         },
+      width: 500,
+      height: 700,
         data: [
-          { name: 'Ahafo', value: 4822023 },
-          { name: 'Ashanti', value: 3590347 },
-          { name: 'Bono', value: 731449 },
-          { name: 'Bono East', value: 6553255 },
-          { name: 'Central', value: 2949131 },
-          { name: 'Eastern', value: 38041430 },
-          { name: 'Greater Accra', value: 9919945 },
-          { name: 'Northern', value: 5187582 },
-          { name: 'North East', value: 917092 },
-          { name: 'Oti', value: 632323 },
-          { name: 'Savannah', value: 19317568 },
-          { name: 'Upper East', value: 1392313 },
-          { name: 'Upper West', value: 1595728 },
-          { name: 'Volta', value: 12875255 },
-          { name: 'Western', value: 6537334 },
-          { name: 'Western North', value: 3074186 },
+          { name: 'A', value: 4822023 },
+          { name: 'B', value: 3590347 },
+          { name: 'C', value: 731449 },
+          { name: 'D', value: 6553255 },
+          { name: 'E', value: 2949131 },
+          { name: 'F', value: 38041430 },
+          { name: 'G', value: 9919945 },
+          { name: 'H', value: 5187582 },
+          { name: 'I', value: 917092 },
+          { name: 'J', value: 632323 },
+          { name: 'K', value: 19317568 },
+          { name: 'L', value: 1392313 },
+          { name: 'M', value: 1595728 },
+          { name: 'N', value: 12875255 },
+          { name: 'O', value: 6537334 },
+          { name: 'P', value: 3074186 },
         ]
       }
     ]
   };
 
       
-    echarts.registerMap('world', worldGeoJson); // Register the GeoJSON data for the map
+    echarts.registerMap('Ghana', worldGeoJson); // Register the GeoJSON data for the map
     chart.setOption(options);
       });
     });
   </script>
   
-  <div id="echarts-container" style="width: 100%; height: 650px;"></div>
+  <!-- <div class="p-2">
+    <a href="/">Main Map</a>
+  </div> -->
+  <div class="mt-20" id="echarts-container" style="width: 100%; height: 760px;"></div>

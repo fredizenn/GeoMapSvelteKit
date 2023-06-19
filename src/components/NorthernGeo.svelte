@@ -65,9 +65,9 @@
           }
         },
         data: [
-          // { name: 'Ahafo', value: 4822023 },
-          // { name: 'Ashanti', value: 3590347 },
-          // { name: 'Bono', value: 731449 },
+          { name: 'A', value: 4822023 },
+          { name: 'B', value: 3590347 },
+          { name: 'C', value: 731449 },
           // { name: 'Bono East', value: 6553255 },
           // { name: 'Central', value: 2949131 },
           // { name: 'Eastern', value: 38041430 },
