@@ -55,7 +55,7 @@
     },
     series: [
       {
-        name: 'Ghana',
+        name: 'North',
         type: 'map',
         roam: true,
         map: 'north',
@@ -64,23 +64,25 @@
             show: true
           }
         },
+        width: 500,
+        height: 600,
         data: [
           { name: 'A', value: 4822023 },
           { name: 'B', value: 3590347 },
           { name: 'C', value: 731449 },
-          // { name: 'Bono East', value: 6553255 },
-          // { name: 'Central', value: 2949131 },
-          // { name: 'Eastern', value: 38041430 },
-          // { name: 'Greater Accra', value: 9919945 },
-          // { name: 'Northern', value: 5187582 },
-          // { name: 'North East', value: 917092 },
-          // { name: 'Oti', value: 632323 },
-          // { name: 'Savannah', value: 19317568 },
-          // { name: 'Upper East', value: 1392313 },
-          // { name: 'Upper West', value: 1595728 },
-          // { name: 'Volta', value: 12875255 },
-          // { name: 'Western', value: 6537334 },
-          // { name: 'Western North', value: 3074186 },
+          { name: 'D', value: 6553255 },
+          { name: 'E', value: 2949131 },
+          { name: 'F', value: 38041430 },
+          { name: 'G', value: 9919945 },
+          { name: 'H', value: 5187582 },
+          { name: 'I', value: 917092 },
+          { name: 'J', value: 632323 },
+          { name: 'K', value: 19317568 },
+          { name: 'L', value: 1392313 },
+          { name: 'M', value: 1595728 },
+          { name: 'N', value: 12875255 },
+          { name: 'O', value: 6537334 },
+          { name: 'P', value: 3074186 },
         ]
       }
     ]
