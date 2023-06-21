@@ -1,8 +1,21 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import northernGeoJson from './northern.geo.json'
+    import greaterAccraGeoJson from './greaterAccra.geo.json'
+  import Modal from './modal.svelte';
+  import NorthernGeo from './NorthernGeo.svelte';
     
 
+    let showModal = false;
+
+    function openModal () {
+        showModal = true;
+    }
+
+    function closeModal () {
+        showModal = false;
+    }
+
+    let selectedOption: any = null;
     onMount(() => {
       import('echarts').then(echarts => {
         const chart = echarts.init(document.getElementById('echarts-container')!);
@@ -11,10 +24,11 @@
         const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Northern Region with constituents',
+      subtext: 'Greater Accra Region with constituents',
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
     },
+
     tooltip: {
       trigger: 'item',
       showDelay: 0,
@@ -55,16 +69,16 @@
     },
     series: [
       {
-        name: 'North',
+        name: 'Greater Accra',
         type: 'map',
         roam: true,
-        map: 'north',
+        map: 'accra',
         emphasis: {
           label: {
             show: true
           }
         },
-        width: 500,
+        width: 800,
         height: 600,
         data: [
           { name: 'A', value: 4822023 },
@@ -82,23 +96,49 @@
           { name: 'M', value: 1595728 },
           { name: 'N', value: 12875255 },
           { name: 'O', value: 6537334 },
-          { name: 'P', value: 3074186 },
-          { name: 'Q', value: 10746 },
-          { name: 'R', value: 374186 },
+          { name: 'P', value: 13074186 },
+          { name: 'Q', value: 103341746 },
+          { name: 'R', value: 124186 },
+          { name: 'S', value: 12684186 },
+          { name: 'T', value: 864186 },
+          { name: 'U', value: 664186 },
+          { name: 'V', value: 1934186 },
+          { name: 'W', value: 12374186 },
+          { name: 'X', value: 86 },
+          { name: 'Y', value: 3342186 },
+          { name: 'Z', value: 1074186 },
+          { name: 'Z1', value: 4186 },
+          { name: 'Z2', value: 174186 },
+          { name: 'Z3', value: 74186 },
+          { name: 'Z4', value: 11374186 },
+
 
         ]
       }
     ]
   };
 
-      
-    echarts.registerMap('north', northernGeoJson); // Register the GeoJSON data for the map
+    chart.on('click', handleStateClick);
+    echarts.registerMap('accra', greaterAccraGeoJson); // Register the GeoJSON data for the map
     chart.setOption(options);
       });
     });
+
+    function handleStateClick(params: any) {
+        const stateName = params.name;
+        selectedOption = {
+            name: stateName
+        }
+        console.log(stateName);
+        openModal()
+    }
   </script>
   
   <!-- <div class="p-2">
     <a href="/">Main Map</a>
   </div> -->
   <div id="echarts-container" style="width: 100%; height: 650px;"></div>
+
+  <Modal title={selectedOption?.name} bind:open={showModal} showIcon={false} on:close={() => (showModal = false)}>
+    <NorthernGeo />
+</Modal>
