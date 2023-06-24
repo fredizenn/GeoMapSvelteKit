@@ -6,12 +6,20 @@
   import { ChartView } from 'echarts';
     
 
+    let showModal = false;
+
+    function openModal () {
+        showModal = true;
+    }
+
+    function closeModal () {
+        showModal = false;
+    }
+
     const map = 'accra'
     const importValue: any = centralGeoJson;
 
-    
-    onMount(() => {
-        const data = [
+    const data = [
           { name: 'Constituency A', value: 4822023 },
           { name: 'Constituency B', value: 3590347 },
           { name: 'Constituency C', value: 731449 },
@@ -38,16 +46,16 @@
           { name: 'Constituency X', value: 86 },
 
         ]
+    let selectedOption: any = null;
+    onMount(() => {
       import('echarts').then(echarts => {
         const chart = echarts.init(document.getElementById('echarts-container')!);
-        data.sort(function (a, b) {
-    return a.value - b.value;
-  });
+        
         // ECharts configuration options for the Geo Map
     const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Central Region with constituents. Transitioning to bar charts',
+      subtext: 'Greater Accra Region with constituents. Click on any constituency to shoot up a modal.',
     
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
@@ -102,8 +110,6 @@
             show: true
           }
         },
-        animationDurationUpdate: 1000,
-        universalTransition: true,
         width: 800,
         height: 600,
         data: data
@@ -111,47 +117,40 @@
     ]
   };
 
-  const barOption = {
-    title: {
-      text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Central Region with constituents. Transitioning to bar charts',
     
-      // sublink: 'http://www.census.gov/popest/data/datasets.html',
-      left: 'right'
-    },
-    xAxis: {
-      type: 'value'
-    },
-    yAxis: {
-      type: 'category',
-      axisLabel: {
-        rotate: 30
+  const barChartOptions = {
+      title: {
+        text: 'Bar Chart',
+        left: 'center',
       },
-      data: data.map(function (item) {
-        return item.name;
-      })
-    },
-    animationDurationUpdate: 1000,
-    series: {
-      type: 'bar',
-      id: 'population',
-      data: data?.map(function (item) {
-        return item.value;
-      }),
-      universalTransition: true
+      tooltip: {
+        trigger: 'axis',
+      },
+      xAxis: {
+        type: 'value',
+      },
+      yAxis: {
+        type: 'category',
+      },
+      series: [
+        {
+          type: 'bar',
+          data: data,
+        },
+      ],
+    };
+
+    echarts.registerMap('central', centralGeoJson); // Register the GeoJSON data for the map
+    chart.setOption(options);
+    chart.on('click', transitionToBarChart);
+
+    function transitionToBarChart() {
+      chart.setOption(barChartOptions);
     }
-  };
-
-  let currentOption = options;
-  chart.setOption(options);
-  setInterval(function () {
-    currentOption = currentOption === options ? barOption : options;
-    chart.setOption(currentOption, true);
-  }, 4000);
-});
-
-   
       });
+
+      
+    });
 
     
   </script>
@@ -161,4 +160,4 @@
   </div> -->
   <div id="echarts-container" style="width: 100%; height: 650px;"></div>
 
- 
+  
