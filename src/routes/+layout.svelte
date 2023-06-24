@@ -7,6 +7,7 @@ import { TabGroup, Tab } from '@skeletonlabs/skeleton';
   import VoltaGeoMap from '../components/VoltaGeoMap.svelte';
   import NorthernGeo from '../components/NorthernGeo.svelte';
   import GreaterAccra from '../components/GreaterAccra.svelte';
+  import CentralRegion from '../components/CentralRegion.svelte';
 let tabSet: number = 0;
 
 </script>
@@ -17,6 +18,8 @@ let tabSet: number = 0;
 	<Tab bind:group={tabSet} name="tab2" value={1}>Volta</Tab>
 	<Tab bind:group={tabSet} name="tab3" value={2}>Northern</Tab>
 	<Tab bind:group={tabSet} name="tab3" value={3}>Greater Accra</Tab>
+	<Tab bind:group={tabSet} name="tab4" value={4}>Central Region</Tab>
+
 
 	<!-- Tab Panels --->
 	<svelte:fragment slot="panel">
@@ -28,6 +31,8 @@ let tabSet: number = 0;
 			<NorthernGeo />
 		{:else if tabSet === 3}
 			<GreaterAccra />
+		{:else if tabSet === 4}
+			<CentralRegion />
 		{/if}
 	</svelte:fragment>
 </TabGroup>

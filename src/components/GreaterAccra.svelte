@@ -3,6 +3,7 @@
     import greaterAccraGeoJson from './greaterAccra.geo.json'
   import Modal from './modal.svelte';
   import NorthernGeo from './NorthernGeo.svelte';
+  import { ChartView } from 'echarts';
     
 
     let showModal = false;
@@ -15,6 +16,9 @@
         showModal = false;
     }
 
+    const map = 'accra'
+    const importValue = greaterAccraGeoJson
+
     let selectedOption: any = null;
     onMount(() => {
       import('echarts').then(echarts => {
@@ -24,7 +28,8 @@
         const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Greater Accra Region with constituents',
+      subtext: 'Greater Accra Region with constituents. Click on any constituency to shoot up a modal.',
+    
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
     },
@@ -81,36 +86,36 @@
         width: 800,
         height: 600,
         data: [
-          { name: 'A', value: 4822023 },
-          { name: 'B', value: 3590347 },
-          { name: 'C', value: 731449 },
-          { name: 'D', value: 6553255 },
-          { name: 'E', value: 2949131 },
-          { name: 'F', value: 38041430 },
-          { name: 'G', value: 9919945 },
-          { name: 'H', value: 5187582 },
-          { name: 'I', value: 917092 },
-          { name: 'J', value: 632323 },
-          { name: 'K', value: 19317568 },
-          { name: 'L', value: 1392313 },
-          { name: 'M', value: 1595728 },
-          { name: 'N', value: 12875255 },
-          { name: 'O', value: 6537334 },
-          { name: 'P', value: 13074186 },
-          { name: 'Q', value: 103341746 },
-          { name: 'R', value: 124186 },
-          { name: 'S', value: 12684186 },
-          { name: 'T', value: 864186 },
-          { name: 'U', value: 664186 },
-          { name: 'V', value: 1934186 },
-          { name: 'W', value: 12374186 },
-          { name: 'X', value: 86 },
-          { name: 'Y', value: 3342186 },
-          { name: 'Z', value: 1074186 },
-          { name: 'Z1', value: 4186 },
-          { name: 'Z2', value: 174186 },
-          { name: 'Z3', value: 74186 },
-          { name: 'Z4', value: 11374186 },
+          { name: 'Constituency A', value: 4822023 },
+          { name: 'Constituency B', value: 3590347 },
+          { name: 'Constituency C', value: 731449 },
+          { name: 'Constituency D', value: 6553255 },
+          { name: 'Constituency E', value: 2949131 },
+          { name: 'Constituency F', value: 38041430 },
+          { name: 'Constituency G', value: 9919945 },
+          { name: 'Constituency H', value: 5187582 },
+          { name: 'Constituency I', value: 917092 },
+          { name: 'Constituency J', value: 632323 },
+          { name: 'Constituency K', value: 19317568 },
+          { name: 'Constituency L', value: 1392313 },
+          { name: 'Constituency M', value: 1595728 },
+          { name: 'Constituency N', value: 12875255 },
+          { name: 'Constituency O', value: 6537334 },
+          { name: 'Constituency P', value: 13074186 },
+          { name: 'Constituency Q', value: 103341746 },
+          { name: 'Constituency R', value: 124186 },
+          { name: 'Constituency S', value: 12684186 },
+          { name: 'Constituency T', value: 864186 },
+          { name: 'Constituency U', value: 664186 },
+          { name: 'Constituency V', value: 1934186 },
+          { name: 'Constituency W', value: 12374186 },
+          { name: 'Constituency X', value: 86 },
+          { name: 'Constituency Y', value: 3342186 },
+          { name: 'Constituency Z', value: 1074186 },
+          { name: 'Constituency Z1', value: 4186 },
+          { name: 'Constituency Z2', value: 174186 },
+          { name: 'Constituency Z3', value: 74186 },
+          { name: 'Constituency Z4', value: 11374186 },
 
 
         ]
@@ -139,6 +144,6 @@
   </div> -->
   <div id="echarts-container" style="width: 100%; height: 650px;"></div>
 
-  <Modal title={selectedOption?.name} bind:open={showModal} showIcon={false} on:close={() => (showModal = false)}>
-    <NorthernGeo />
+  <Modal title={selectedOption?.name} map={map} importValue={importValue} bind:open={showModal} showIcon={false} on:close={() => (showModal = false)}>
+    <!-- <NorthernGeo /> -->
 </Modal>

@@ -6,13 +6,17 @@
       dangerous?: boolean
       handler: (_: IButton) => void
     }
+
+    import northernGeoJson from './northern.geo.json'
+    
+    
   </script>
   
   <script lang="ts">
     // import { Icon } from "@steeze-ui/svelte-icon"
     // import { ExclamationCircle, Check, XMark } from "@steeze-ui/heroicons"
     import { fade, fly } from "svelte/transition"
-    import { createEventDispatcher } from "svelte"
+    import { createEventDispatcher, onMount } from "svelte"
     import { cubicIn, cubicOut, elasticInOut } from "svelte/easing"
       import Icon from '@iconify/svelte';
     export let title: string = ""
@@ -45,7 +49,102 @@
     }
     
    
-    
+    export let map: string;
+    export let importValue: any;
+
+    onMount(() => {
+      import('echarts').then(echarts => {
+        const chart = echarts.init(document.getElementById('echarts-container')!);
+        
+        // ECharts configuration options for the Geo Map
+        const options = {
+    title: {
+      text: 'Ghana Map Test - Echarts::Svelte',
+      subtext: 'Northern Region with constituents',
+      // sublink: 'http://www.census.gov/popest/data/datasets.html',
+      left: 'right'
+    },
+    tooltip: {
+      trigger: 'item',
+      showDelay: 0,
+      transitionDuration: 0.2
+    },
+    visualMap: {
+      left: 'right',
+      min: 500000,
+      max: 38000000,
+      inRange: {
+        color: [
+          '#313695',
+          '#4575b4',
+          '#74add1',
+          '#abd9e9',
+          '#e0f3f8',
+          '#ffffbf',
+          '#fee090',
+          '#fdae61',
+          '#f46d43',
+          '#d73027',
+          '#a50026'
+        ]
+      },
+      text: ['High', 'Low'],
+      calculable: true
+    },
+    toolbox: {
+      show: true,
+      //orient: 'vertical',
+      left: 'left',
+      top: 'top',
+      feature: {
+        dataView: { readOnly: false },
+        restore: {},
+        saveAsImage: {}
+      }
+    },
+    series: [
+      {
+        name: 'North',
+        type: 'map',
+        roam: true,
+        map: 'accra',
+        emphasis: {
+          label: {
+            show: true
+          }
+        },
+        width: 500,
+        height: 600,
+        data: [
+          { name: 'A', value: 4822023 },
+          { name: 'B', value: 3590347 },
+          { name: 'C', value: 731449 },
+          { name: 'D', value: 6553255 },
+          { name: 'E', value: 2949131 },
+          { name: 'F', value: 38041430 },
+          { name: 'G', value: 9919945 },
+          { name: 'H', value: 5187582 },
+          { name: 'I', value: 917092 },
+          { name: 'J', value: 632323 },
+          { name: 'K', value: 19317568 },
+          { name: 'L', value: 1392313 },
+          { name: 'M', value: 1595728 },
+          { name: 'N', value: 12875255 },
+          { name: 'O', value: 6537334 },
+          { name: 'P', value: 3074186 },
+          { name: 'Q', value: 10746 },
+          { name: 'R', value: 374186 },
+
+        ]
+      }
+    ]
+  };
+
+      
+    echarts.registerMap('accra', northernGeoJson); // Register the GeoJSON data for the map
+    chart.setOption(options);
+      });
+    });
   
   </script>
   
@@ -60,7 +159,7 @@
     <div class="fixed z-10 inset-0  overflow-y-auto " >
       <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0 ">
         {#if open}
-        <div class="relative text-left bg-white overflow-hidden shadow-xl transform transition-all sm:my-8 lg:max-w-xl xl:max-w-2xl sm:w-full  "
+        <div class="relative text-left bg-none overflow-hidden shadow-xl transform transition-all sm:my-8 lg:max-w-xl xl:max-w-2xl sm:w-full  "
             class:bg-gray={grayBg}
             class:sm:max-w-7xl={xl}
             class:sm:max-w-4xl={lg}
@@ -70,7 +169,7 @@
           <div class="{padded && 'px-4 pt-5 pb-4 sm:p-6 sm:pb-4'} ">
             {#if showCloseButton}
             <div class="hiddenx sm:block absolute top-0 right-0 pt-4 pr-4">
-              <button type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" on:click={onClose} class:bg-gray={grayBg}>
+              <button type="button" class=" rounded-md text-gray-900 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" on:click={onClose} class:bg-gray={grayBg}>
                 <span class="sr-only">Close</span>
                 <Icon icon="carbon:close" style="font-size: 32px"/>
               </button>
@@ -87,7 +186,7 @@
                 <h3 class="text-lg leading-6 font-medium text-gray-900" class:hidden={!title}>{title}</h3>
                 <div class=" p-0 m-0 border" class:hidden={!title}></div>
                 <div class="mt-2 ">
-                  <slot>No content provided</slot>
+                  <div id="echarts-container" style="width: 100%; height: 650px;"></div>
                 </div>
               </div>
             </div>
