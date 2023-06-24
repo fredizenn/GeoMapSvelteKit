@@ -55,7 +55,7 @@
     const options = {
     title: {
       text: 'Ghana Map Test - Echarts::Svelte',
-      subtext: 'Greater Accra Region with constituents. Click on any constituency to shoot up a modal.',
+      subtext: 'Central Region with constituents. Click on the Geo map to show a bar chart',
     
       // sublink: 'http://www.census.gov/popest/data/datasets.html',
       left: 'right'
@@ -140,12 +140,19 @@
       ],
     };
 
+    let currentOptions = options
+
     echarts.registerMap('central', centralGeoJson); // Register the GeoJSON data for the map
-    chart.setOption(options);
-    chart.on('click', transitionToBarChart);
+    chart.setOption(currentOptions);
+    chart.on('click', currentOptions === options ? transitionToBarChart : transitionToDefault);
 
     function transitionToBarChart() {
-      chart.setOption(barChartOptions);
+        currentOptions = barChartOptions
+      chart.setOption(currentOptions);
+    }
+
+    function transitionToDefault()  {
+      chart.setOption(options);
     }
       });
 
