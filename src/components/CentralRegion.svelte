@@ -9,7 +9,9 @@
     const map = 'accra'
     const importValue: any = centralGeoJson;
 
-    const data = [
+    
+    onMount(() => {
+        const data = [
           { name: 'Constituency A', value: 4822023 },
           { name: 'Constituency B', value: 3590347 },
           { name: 'Constituency C', value: 731449 },
@@ -36,7 +38,6 @@
           { name: 'Constituency X', value: 86 },
 
         ]
-    onMount(() => {
       import('echarts').then(echarts => {
         const chart = echarts.init(document.getElementById('echarts-container')!);
         data.sort(function (a, b) {
@@ -134,7 +135,7 @@
     series: {
       type: 'bar',
       id: 'population',
-      data: data.map(function (item) {
+      data: data?.map(function (item) {
         return item.value;
       }),
       universalTransition: true
