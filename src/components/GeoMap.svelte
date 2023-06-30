@@ -61,27 +61,28 @@
         emphasis: {
           label: {
             show: true
-          }
+          },
         },
-      width: 500,
-      height: 700,
+        width: 600,
+
+        height: 800,
         data: [
-          { name: 'A', value: 4822023 },
-          { name: 'B', value: 3590347 },
-          { name: 'C', value: 731449 },
-          { name: 'D', value: 6553255 },
-          { name: 'E', value: 2949131 },
-          { name: 'F', value: 38041430 },
-          { name: 'G', value: 9919945 },
-          { name: 'H', value: 5187582 },
-          { name: 'I', value: 917092 },
-          { name: 'J', value: 632323 },
-          { name: 'K', value: 19317568 },
-          { name: 'L', value: 1392313 },
-          { name: 'M', value: 1595728 },
-          { name: 'N', value: 12875255 },
-          { name: 'O', value: 6537334 },
-          { name: 'P', value: 3074186 },
+          { name: 'Upper West', value: 4822023 },
+          { name: 'North East', value: 3590347 },
+          { name: 'Upper East', value: 731449 },
+          { name: 'Northern', value: 6553255 },
+          { name: 'Savannah', value: 2949131 },
+          { name: 'Bono', value: 38041430 },
+          { name: 'Bono East', value: 9919945 },
+          { name: 'Oti', value: 5187582 },
+          { name: 'Western North', value: 917092 },
+          { name: 'Ahafo', value: 632323 },
+          { name: 'Ashanti', value: 19317568 },
+          { name: 'Eastern', value: 1392313 },
+          { name: 'Volta', value: 1595728 },
+          { name: 'Western', value: 12875255 },
+          { name: 'Central', value: 6537334 },
+          { name: 'Greater Accra', value: 3074186 },
         ]
       }
     ]
@@ -97,4 +98,4 @@
   <!-- <div class="p-2">
     <a href="/">Main Map</a>
   </div> -->
-  <div class="mt-20" id="echarts-container" style="width: 100%; height: 760px;"></div>
+  <div class="mt-20" id="echarts-container" style="width: 100%; height: 900px;"></div>
