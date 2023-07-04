@@ -3,8 +3,9 @@
   "features": [{
           "type": "Feature",
           "properties": {
-              "name": "Upper West"
-              
+              "name": "Upper West",
+              "NPP": "200,000",
+              "NDC": "300,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -981,8 +982,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Upper East"
-              
+              "name": "Upper East",
+              "NPP": "200,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -3257,7 +3259,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "North East"
+              "name": "North East",
+              "NPP": "200,000",
+              "NDC": "600,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -6119,7 +6123,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Savannah"
+              "name": "Savannah",
+              "NPP": "200,000",
+              "NDC": "800,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -10165,8 +10171,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Northern"
-
+              "name": "Northern",
+              "NPP": "280,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -15424,7 +15431,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Oti"
+              "name": "Oti",
+              "NPP": "200,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -18400,7 +18409,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Bono East"
+              "name": "Bono East",
+              "NPP": "200,000",
+              "NDC": "500,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -20934,8 +20945,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Bono"
-
+              "name": "Bono",
+              "NPP": "700,000",
+              "NDC": "500,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -21723,7 +21735,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Western North"
+              "name": "Western North",
+              "NPP": "200,000",
+              "NDC": "300,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -22516,7 +22530,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Ahafo"
+              "name": "Ahafo",
+              "NPP": "200,000",
+              "NDC": "500,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -22950,7 +22966,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Ashanti"
+              "name": "Ashanti",
+              "NPP": "100,000",
+              "NDC": "450,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -25946,7 +25964,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Eastern"
+              "name": "Eastern",
+              "NPP": "200,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -26992,7 +27012,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Volta"
+              "name": "Volta",
+              "NPP": "400,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -28730,7 +28752,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Western"
+              "name": "Western",
+              "NPP": "200,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -30195,7 +30219,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Central"
+              "name": "Central",
+              "NPP": "300,000",
+              "NDC": "100,000"
           },
           "geometry": {
               "type": "Polygon",
@@ -31913,7 +31939,9 @@
       {
           "type": "Feature",
           "properties": {
-              "name": "Greater Accra"
+              "name": "Greater Accra",
+              "NPP": "200,000",
+              "NDC": "700,000"
           },
           "geometry": {
               "type": "Polygon",

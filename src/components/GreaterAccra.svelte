@@ -144,6 +144,6 @@
   </div> -->
   <div id="echarts-container" style="width: 100%; height: 650px;"></div>
 
-  <Modal title={selectedOption?.name} map={map} importValue={importValue} bind:open={showModal} showIcon={false} on:close={() => (showModal = false)}>
+  <Modal title={selectedOption?.name} bind:open={showModal} showIcon={false} on:close={() => (showModal = false)}>
     <!-- <NorthernGeo /> -->
 </Modal>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import voltaGeoJson from './volta.geo.json'; // Import the GeoJSON file for the world map
+    import voltaGeoJson from './voltaGeo.geo.json'; // Import the GeoJSON file for the world map
 
     onMount(() => {
       import('echarts').then(echarts => {

@@ -19,6 +19,7 @@
     import { createEventDispatcher, onMount } from "svelte"
     import { cubicIn, cubicOut, elasticInOut } from "svelte/easing"
       import Icon from '@iconify/svelte';
+  import NorthernGeo from "./NorthernGeo.svelte";
     export let title: string = ""
     export let closeFn: () => boolean = null
   
@@ -49,8 +50,8 @@
     }
     
    
-    export let map: string;
-    export let importValue: any;
+    // export let map: string;
+    // export let importValue: any;
 
     onMount(() => {
       import('echarts').then(echarts => {
@@ -107,7 +108,7 @@
         name: 'North',
         type: 'map',
         roam: true,
-        map: 'accra',
+        map: 'North',
         emphasis: {
           label: {
             show: true
@@ -141,7 +142,7 @@
   };
 
       
-    echarts.registerMap('accra', northernGeoJson); // Register the GeoJSON data for the map
+    echarts.registerMap('North', northernGeoJson); // Register the GeoJSON data for the map
     chart.setOption(options);
       });
     });
@@ -185,7 +186,8 @@
                 <h3 class="text-lg leading-6 font-medium text-gray-900" class:hidden={!title}>{title}</h3>
                 <div class=" p-0 m-0 border" class:hidden={!title}></div>
                 <div class="mt-2 ">
-                  <div id="echarts-container" style="width: 100%; height: 650px;"></div>
+                  <NorthernGeo />
+                  <!-- <div id="echarts-container" style="width: 100%; height: 650px;"></div> -->
                 </div>
               </div>
             </div>

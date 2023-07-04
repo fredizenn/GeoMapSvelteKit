@@ -147,7 +147,7 @@
     chart.on('click', currentOptions === options ? transitionToBarChart : transitionToDefault);
 
     function transitionToBarChart() {
-        currentOptions = barChartOptions
+      currentOptions = barChartOptions
       chart.setOption(currentOptions);
     }
 
