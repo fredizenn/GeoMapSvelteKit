@@ -19,15 +19,24 @@
   import otiGeoJson from "./oti.geo.json";
   import * as echarts from "echarts";
 
-  $: map = "";
-  let geoJson: any;
+  $: map = "Ghana";
+  let geoJson: any = ghanaGeoJson;
   let chartInstance: any = null;
   const dispatch = createEventDispatcher();
   let stateName = "Ghana Map";
 
+  let reset = false;
+
+  $: showReset = () => {
+    stateName !== "Ghana Map" ? (reset = true) : (reset = false);
+  };
+
+
+
   function handleStateClick(params: any) {
     stateName = params.name;
 
+    showReset();
     dispatch("stateClick", { state: stateName });
 
     switch (stateName) {
@@ -107,6 +116,13 @@
         map = "volta";
         geoJson = voltaGeoJson;
         echarts.registerMap("volta", voltaGeoJson);
+        chartInstance.setOption({
+          series: [
+            {
+              height: 800,
+            },
+          ],
+        });
         break;
       case "Greater Accra":
         map = "greater-accra";
@@ -119,6 +135,9 @@
         echarts.registerMap("oti", otiGeoJson);
         break;
       default:
+        map = "Ghana";
+        geoJson = otiGeoJson;
+        echarts.registerMap("ghana", ghanaGeoJson);
         break;
     }
     console.log({ stateName });
@@ -146,6 +165,10 @@
         },
       ],
     });
+  }
+
+  function handleReset() {
+    location.reload();
   }
 
   onMount(() => {
@@ -204,13 +227,11 @@
           {
             name: "Ghana",
             type: "map",
-            roam: true,
+            roam: false,
             map: map,
             emphasis: {
               label: {
                 show: true,
-                
-
               },
             },
             width: 600,
@@ -218,6 +239,7 @@
             data: geoJson?.features.map((feature: any) => {
               return {
                 name: feature.properties.name,
+                
                 value: Math.random() * 10000000,
                 itemStyle: {
                   areaColor: "#fff",
@@ -241,12 +263,8 @@
 
   // afterUpdate(() => {
   //   if (chartInstance) {
-  //     let geoJson;
-  //     if (map === "Ghana") {
-  //       geoJson = ghanaGeoJson;
-  //     } else if (map === "Northern") {
-  //       geoJson = northernGeoJson;
-  //     }
+  //     // Update the chart instance when the map variable changes
+  //     echarts.registerMap(map, geoJson);
 
   //     chartInstance.setOption({
   //       series: [
@@ -255,7 +273,11 @@
   //           data: geoJson?.features.map((feature: any) => {
   //             return {
   //               name: feature.properties.name,
-  //               value: Math.random() * 1000,
+  //               value: Math.random() * 10000000,
+  //               itemStyle:
+  //                 feature.properties.NPP > feature.properties.NDC
+  //                   ? "#0B4A95"
+  //                   : "#336C57",
   //             };
   //           }),
   //         },
@@ -263,6 +285,39 @@
   //     });
   //   }
   // });
+
+  $: {
+    if (chartInstance) {
+      echarts.registerMap(map, geoJson);
+
+      chartInstance.setOption({
+        series: [
+          {
+            map: map,
+            // data: geoJson?.features.map((feature: any) => {
+            //   return {
+            //     name: feature.properties.name,
+            //     value: Math.random() * 10000000,
+            //     itemStyle:
+            //       feature.properties.NPP > feature.properties.NDC
+            //         ? "#0B4A95"
+            //         : "#336C57",
+            //   };
+            // }),
+          },
+        ],
+      });
+    }
+  }
 </script>
 
-<div class="mt-20" id="echarts-container" style="width: 100%; height: 900px;" />
+{#if reset}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <button
+    type="button"
+    class="btn variant-filled rounded-none m-2"
+    on:click={() => handleReset()}>Reset</button
+  >
+{/if}
+
+<div class="" id="echarts-container" style="width: 100%; height: 900px;" />
